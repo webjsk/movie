@@ -1,5 +1,5 @@
 import type { UseFetchOptions } from 'nuxt/app'
-import { onRequest, onResponse, onResponseError } from '~/utils/api'
+import { createOnRequest, onResponse, onResponseError } from '~/utils/api'
 
 /**
  * 获取完整 URL（如果是完整 URL 则直接返回，否则拼接 baseURL）
@@ -26,10 +26,16 @@ export function useAPI<T = any>(
   const baseURL = config.public.tmdbApiBaseUrl || 'https://api.themoviedb.org/3'
   const fullUrl = getFullUrl(endpoint, baseURL)
   
+  // ✅ 创建请求拦截器（通过闭包传递配置）
+  const requestInterceptor = createOnRequest({
+    tmdbApiKey: config.public.tmdbApiKey || '',
+    tmdbApiBaseUrl: config.public.tmdbApiBaseUrl || 'https://api.themoviedb.org/3'
+  })
+  
   return useFetch<T>(fullUrl, {
     ...options,
-    // ✅ 请求拦截
-    onRequest,
+    // ✅ 请求拦截（使用创建的拦截器）
+    onRequest: requestInterceptor,
     
     // ✅ 响应拦截
     onResponse,
