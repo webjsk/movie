@@ -4,15 +4,13 @@ import { onRequest, onResponse, onResponseError } from '~/utils/api'
 /**
  * 获取完整 URL（如果是完整 URL 则直接返回，否则拼接 baseURL）
  */
-function getFullUrl(endpoint: string): string {
+function getFullUrl(endpoint: string, baseURL: string): string {
   // 如果已经是完整 URL，直接返回
   if (endpoint.startsWith('http://') || endpoint.startsWith('https://')) {
     return endpoint
   }
   
-  // 否则使用环境变量中的 TMDB API base URL
-  const config = useRuntimeConfig()
-  const baseURL = config.public.tmdbApiBaseUrl || 'https://api.themoviedb.org/3'
+  // 否则使用传入的 baseURL
   return `${baseURL}${endpoint}`
 }
 
@@ -23,7 +21,10 @@ export function useAPI<T = any>(
   endpoint: string,
   options: UseFetchOptions<T> = {}
 ) {
-  const fullUrl = getFullUrl(endpoint)
+  // ✅ 在 composable 内部获取 config（确保在 Nuxt 上下文中）
+  const config = useRuntimeConfig()
+  const baseURL = config.public.tmdbApiBaseUrl || 'https://api.themoviedb.org/3'
+  const fullUrl = getFullUrl(endpoint, baseURL)
   
   return useFetch<T>(fullUrl, {
     ...options,
@@ -104,12 +105,15 @@ export async function apiGet<T = any>(
   endpoint: string,
   params?: Record<string, any>
 ): Promise<T> {
-  const fullUrl = getFullUrl(endpoint)
+  // ✅ 在函数内部获取 config（确保在 Nuxt 上下文中）
   const config = useRuntimeConfig()
+  const baseURL = config.public.tmdbApiBaseUrl || 'https://api.themoviedb.org/3'
+  const fullUrl = getFullUrl(endpoint, baseURL)
+  const apiKey = config.public.tmdbApiKey || ''
   
   // 构建查询参数
   const query = {
-    api_key: config.public.tmdbApiKey,
+    api_key: apiKey,
     language: 'zh-CN',
     ...params
   }
