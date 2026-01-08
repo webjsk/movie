@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt build",
-    "build:dev": "NODE_ENV=development nuxt build",
-    "build:staging": "NODE_ENV=staging nuxt build",
-    "build:prod": "NODE_ENV=production nuxt build",
-    "preview": "nuxt preview",
-    "preview:dev": "NODE_ENV=development nuxt preview",
-    "preview:staging": "NODE_ENV=staging nuxt preview",
-    "preview:prod": "NODE_ENV=production nuxt preview",
+    "build": "NETLIFY=true nuxt build",
+    "build:local": "nuxt build",
+
+    "build:dev": "nuxt build --dotenv .env.development",
+    "build:staging": "nuxt build --dotenv .env.staging",
+    "build:prod": "nuxt build --dotenv .env.production",
+    "preview": "npm run build:prod && nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

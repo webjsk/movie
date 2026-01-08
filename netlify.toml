@@ -1,6 +1,7 @@
 [build]
+  NODE_VERSION = "22"
   command = "npm install && npm run build"
-  publish = ".output/public"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
