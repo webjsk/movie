@@ -439,7 +439,7 @@ const _routes = [
   {
     name: "index",
     path: "/",
-    component: () => import('./index-CU0hUyFg.mjs')
+    component: () => import('./index-UN9GmS0S.mjs')
   },
   {
     name: "login",
@@ -450,7 +450,7 @@ const _routes = [
   {
     name: "search",
     path: "/search",
-    component: () => import('./search-C-36eEN5.mjs')
+    component: () => import('./search-Bs5nl4yW.mjs')
   },
   {
     name: "ratings",
@@ -467,7 +467,7 @@ const _routes = [
   {
     name: "movie-id",
     path: "/movie/:id()",
-    component: () => import('./_id_-BTW13T5H.mjs')
+    component: () => import('./_id_-D0FF2sQs.mjs')
   },
   {
     name: "admin",
@@ -478,7 +478,7 @@ const _routes = [
   {
     name: "category-type",
     path: "/category/:type()",
-    component: () => import('./_type_-CwZfkwFi.mjs')
+    component: () => import('./_type_-DzRkG9qb.mjs')
   }
 ];
 const _wrapInTransition = (props, children) => {

@@ -2,7 +2,7 @@ import { _ as __nuxt_component_0 } from './nuxt-link-vDfCgmUc.mjs';
 import { _ as __nuxt_component_1 } from './NuxtImg-D_HxLKuI.mjs';
 import { defineComponent, ref, withAsyncContext, mergeProps, withCtx, createVNode, createTextVNode, unref, createBlock, openBlock, toDisplayString, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrInterpolate, ssrRenderList, ssrIncludeBooleanAttr } from 'vue/server-renderer';
-import { b as GetMovieListByCategory } from './movie-D9X_Omhe.mjs';
+import { b as GetMovieListByCategory } from './movie-WB1Mrw7Q.mjs';
 import { c as useRoute, f as createError, u as useSeoMeta, I as Icon } from './server.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -205,4 +205,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=_type_-CwZfkwFi.mjs.map
+//# sourceMappingURL=_type_-DzRkG9qb.mjs.map

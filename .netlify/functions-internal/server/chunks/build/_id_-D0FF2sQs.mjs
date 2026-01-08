@@ -3,7 +3,7 @@ import { _ as __nuxt_component_1 } from './NuxtImg-D_HxLKuI.mjs';
 import { defineComponent, withAsyncContext, computed, ref, mergeProps, withCtx, createVNode, createTextVNode, unref, isRef, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { c as useRoute, d as useRatingsStore, e as useFavoritesStore, u as useSeoMeta, I as Icon } from './server.mjs';
-import { a as GetMovieDetail } from './movie-D9X_Omhe.mjs';
+import { a as GetMovieDetail } from './movie-WB1Mrw7Q.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
@@ -189,4 +189,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=_id_-BTW13T5H.mjs.map
+//# sourceMappingURL=_id_-D0FF2sQs.mjs.map

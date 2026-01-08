@@ -378,25 +378,22 @@ function generateOptionSegments(opts) {
   }
   return segments;
 }
-function getDefaultParams() {
-  const config = useRuntimeConfig();
-  return {
-    api_key: config.public.tmdbApiKey,
-    language: "zh-CN"
-  };
-}
-function onRequest({ request, options }) {
-  const config = useRuntimeConfig();
-  const tmdbBaseUrl = config.public.tmdbApiBaseUrl || "https://api.themoviedb.org/3";
-  const tmdbDomain = tmdbBaseUrl.replace("https://", "").replace("http://", "");
-  if (typeof request === "string" && request.includes(tmdbDomain)) {
-    const defaultParams = getDefaultParams();
-    if (options.query) {
-      options.query = { ...defaultParams, ...options.query };
-    } else {
-      options.query = defaultParams;
+function createOnRequest(config) {
+  return ({ request, options }) => {
+    const tmdbBaseUrl = config.tmdbApiBaseUrl || "https://api.themoviedb.org/3";
+    const tmdbDomain = tmdbBaseUrl.replace("https://", "").replace("http://", "");
+    if (typeof request === "string" && request.includes(tmdbDomain)) {
+      const defaultParams = {
+        api_key: config.tmdbApiKey || "",
+        language: "zh-CN"
+      };
+      if (options.query) {
+        options.query = { ...defaultParams, ...options.query };
+      } else {
+        options.query = defaultParams;
+      }
     }
-  }
+  };
 }
 function onResponse({ response }) {
   return response._data;
@@ -442,10 +439,14 @@ function useAPI(endpoint, options = {}) {
   const config = useRuntimeConfig();
   const baseURL = config.public.tmdbApiBaseUrl || "https://api.themoviedb.org/3";
   const fullUrl = getFullUrl(endpoint, baseURL);
+  const requestInterceptor = createOnRequest({
+    tmdbApiKey: config.public.tmdbApiKey || "",
+    tmdbApiBaseUrl: config.public.tmdbApiBaseUrl || "https://api.themoviedb.org/3"
+  });
   return useFetch(fullUrl, {
     ...options,
-    // ✅ 请求拦截
-    onRequest,
+    // ✅ 请求拦截（使用创建的拦截器）
+    onRequest: requestInterceptor,
     // ✅ 响应拦截
     onResponse,
     // ✅ 错误拦截
@@ -495,4 +496,4 @@ function GetMovieListByCategory(genreId, page = 1) {
 }
 
 export { GetMovieList as G, SearchMovies as S, GetMovieDetail as a, GetMovieListByCategory as b };
-//# sourceMappingURL=movie-D9X_Omhe.mjs.map
+//# sourceMappingURL=movie-WB1Mrw7Q.mjs.map

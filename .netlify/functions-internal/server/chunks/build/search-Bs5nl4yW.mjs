@@ -3,7 +3,7 @@ import { _ as __nuxt_component_1 } from './MovieSkeleton-Crx0Bu_C.mjs';
 import { _ as __nuxt_component_1$1 } from './NuxtImg-D_HxLKuI.mjs';
 import { defineComponent, ref, withAsyncContext, watch, mergeProps, withCtx, createVNode, createTextVNode, unref, createBlock, openBlock, toDisplayString, createCommentVNode, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderStyle, ssrRenderAttr, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
-import { S as SearchMovies } from './movie-D9X_Omhe.mjs';
+import { S as SearchMovies } from './movie-WB1Mrw7Q.mjs';
 import { c as useRoute, b as useRouter, I as Icon } from './server.mjs';
 import '../nitro/nitro.mjs';
 import 'node:http';
@@ -190,4 +190,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=search-C-36eEN5.mjs.map
+//# sourceMappingURL=search-Bs5nl4yW.mjs.map

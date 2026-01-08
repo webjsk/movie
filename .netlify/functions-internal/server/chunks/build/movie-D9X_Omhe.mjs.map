@@ -1,1 +1,0 @@
-{"version":3,"file":"movie-D9X_Omhe.mjs","sources":["../../../../../node_modules/nuxt/dist/app/composables/asyncData.js","../../../../../node_modules/nuxt/dist/app/composables/fetch.js","../../../../../app/utils/api.ts","../../../../../app/composables/useAPI.ts","../../../../../app/api/movie.ts"],"names":["pick"],"mappings":"","x_google_ignoreList":[0,1]}

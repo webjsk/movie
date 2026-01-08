@@ -61,10 +61,6 @@ export default defineNuxtConfig({
     }
 
   },
-  // 核心配置：指定 Nitro 引擎的部署预设
-  nitro: {
-    preset: 'netlify'
-  },
   // ✅ 全局默认：SPA 模式
   // 这样后续添加的页面默认就是 SPA，无需单独配置
   // ssr: false,
